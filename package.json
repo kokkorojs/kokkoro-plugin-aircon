@@ -1,0 +1,26 @@
+{
+  "name": "kokkoro-plugin-aircon",
+  "version": "1.0.0",
+  "description": "群空调，低碳环保无污染，就是没风",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kokkorojs/kokkoro-plugin-aircon.git"
+  },
+  "keywords": [
+    "kokkoro"
+  ],
+  "author": "yuki <mail@yuki.sh>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kokkorojs/kokkoro-plugin-aircon/issues"
+  },
+  "homepage": "https://github.com/kokkorojs/kokkoro-plugin-aircon#readme",
+  "devDependencies": {
+    "@types/node": "^18.11.15",
+    "kokkoro": "^1.2.9"
+  }
+}
