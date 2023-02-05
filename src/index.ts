@@ -74,15 +74,15 @@ plugin
       case temperature == 114514:
         await ctx.reply('这空调怎么这么臭（恼）');
         break;
-  
+
       case temperature > 6000:
         await ctx.reply('温度最高不能超过 6000℃ 哦');
         break;
-  
+
       case temperature < -273:
         await ctx.reply('温度最少不能低于 -273℃ 哦');
         break;
-  
+
       default:
         const emoji = getEmoji(temperature);
 
