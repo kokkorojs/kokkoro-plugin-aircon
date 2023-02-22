@@ -1,4 +1,5 @@
-import { Plugin, Option } from 'kokkoro';
+import { Plugin, Option } from '@kokkoro/core';
+import { Service } from './service';
 
 interface AirconOption extends Option {
   /** 开关 */
@@ -13,11 +14,12 @@ const option: AirconOption = {
   power: false,
   temperature: 24,
 };
-const { version } = require('../package.json');
+const pkg = require('../package.json');
 const plugin = new Plugin('aircon', option);
+const service = new Service(plugin);
 
 plugin
-  .version(version)
+  .version(pkg.version)
 
 plugin
   .command('open', 'group')
@@ -31,7 +33,7 @@ plugin
       await ctx.reply('空调开着呢！')
       return;
     }
-    const emoji = getEmoji(temperature);
+    const emoji = service.getEmoji(temperature);
 
     await ctx.revise('power', true);
     await ctx.reply(`哔~\n${emoji} 当前温度 ${temperature} ℃`);
@@ -84,7 +86,7 @@ plugin
         break;
 
       default:
-        const emoji = getEmoji(temperature);
+        const emoji = service.getEmoji(temperature);
 
         await ctx.revise('temperature', temperature);
         await ctx.reply(`哔~\n${emoji} 当前温度 ${temperature}℃`);
@@ -104,29 +106,6 @@ plugin
       await ctx.reply('空调关着呢！')
       return;
     }
-    const emoji = getEmoji(temperature);
+    const emoji = service.getEmoji(temperature);
     await ctx.reply(`${emoji} 当前温度 ${temperature}℃`);
   })
-
-function getEmoji(temperature: number) {
-  let emoji = null;
-
-  switch (true) {
-    case temperature < 1:
-      emoji = '🥶';
-      break;
-    case temperature < 26:
-      emoji = '❄️';
-      break;
-    case temperature < 40:
-      emoji = '☀️';
-      break;
-    case temperature <= 100:
-      emoji = '🥵';
-      break;
-    case temperature <= 6000:
-      emoji = '💀';
-      break;
-  }
-  return emoji;
-}

@@ -1,6 +1,6 @@
 {
   "name": "kokkoro-plugin-aircon",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "群空调，低碳环保无污染，就是没风",
   "main": "lib/index.js",
   "scripts": {
@@ -20,8 +20,8 @@
   },
   "homepage": "https://github.com/kokkorojs/kokkoro-plugin-aircon#readme",
   "devDependencies": {
-    "@types/node": "^18.11.19",
-    "kokkoro": "^2.0.0-alpha.1"
+    "@kokkoro/core": "^2.0.1",
+    "@types/node": "^18.14.0"
   },
   "files": [
     "lib"
